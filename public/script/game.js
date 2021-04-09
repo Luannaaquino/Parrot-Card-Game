@@ -5,7 +5,8 @@ var papagaiosUsadosNoJogo = [];
 var cartasAleatorias;
 var cartaUm = 0;
 var cartaDois = 0;
-
+var cartasCertas = 0;
+var jogadas = 0;
 
 while(numeroDeCartas < 4 || numeroDeCartas > 14 || numeroDeCartas % 2 !== 0 ){
     numeroDeCartas = parseInt(prompt("Com quantas cartas voce deseja jogar?"));
@@ -48,6 +49,8 @@ function selecionarCarta(carta){
     carta.classList.add("virarCarta")
     }
 
+    jogadas++;
+
     if(cartaUm === 0){
         cartaUm = carta;
         console.log("Carta um", cartaUm)
@@ -56,6 +59,8 @@ function selecionarCarta(carta){
         if(cartaUm.innerHTML === cartaDois.innerHTML){
             cartaUm = 0;
             cartaDois = 0;
+            cartasCertas += 2;
+            vitoria();
 
         }else{
             setTimeout(desselecionarCarta, 1000)
@@ -69,4 +74,10 @@ function desselecionarCarta(){
     cartaDois.classList.remove("virarCarta");
     cartaUm = 0;
     cartaDois = 0;
+}
+
+function vitoria(){
+    if(cartasCertas === numeroDeCartas){
+        alert("Voce ganhou em "+ jogadas + " jogadas!");
+    }
 }
