@@ -51,13 +51,14 @@ function cartasNoTabluleiro (papagaio){
 
 
 function selecionarCarta(carta){
-    console.log(carta)
+    if(cartaUm === 0 || cartaDois === 0){
     carta.classList.add("virarCarta")
+    }
 
     if(cartaUm === 0){
         cartaUm = carta;
         console.log("Carta um", cartaUm)
-    }else {
+    }else if (cartaDois === 0) {
         cartaDois = carta;
         console.log("Carta dois", cartaDois)
 
