@@ -6,7 +6,6 @@ var cartasAleatorias;
 var cartaUm = 0;
 var cartaDois = 0;
 
-console.log(numeroDeCartas);
 
 while(numeroDeCartas < 4 || numeroDeCartas > 14 || numeroDeCartas % 2 !== 0 ){
     numeroDeCartas = parseInt(prompt("Com quantas cartas voce deseja jogar?"));
@@ -20,14 +19,10 @@ while( n < numeroDeCartas/2){
     n++;
 };
 
-console.log(papagaiosUsadosNoJogo)
-
 function comparador(){
     return Math.random() - 0.5;
 }
 cartasAleatorias = papagaiosUsadosNoJogo.sort(comparador);
-
-console.log(cartasAleatorias)
 
 var n = 0;
 while( n < cartasAleatorias.length){
@@ -45,8 +40,6 @@ function cartasNoTabluleiro (papagaio){
 
     var tabuleiro = document.querySelector(".jogo")
     tabuleiro.appendChild(carta);
-
-    console.log(carta);
 }
 
 
@@ -60,15 +53,11 @@ function selecionarCarta(carta){
         console.log("Carta um", cartaUm)
     }else if (cartaDois === 0) {
         cartaDois = carta;
-        console.log("Carta dois", cartaDois)
-
         if(cartaUm.innerHTML === cartaDois.innerHTML){
-            console.log("igual")
             cartaUm = 0;
             cartaDois = 0;
 
         }else{
-            console.log("dif")
             setTimeout(desselecionarCarta, 1000)
 
         }
@@ -76,7 +65,6 @@ function selecionarCarta(carta){
 }
 
 function desselecionarCarta(){
-    console.log("rodou")
     cartaUm.classList.remove("virarCarta");
     cartaDois.classList.remove("virarCarta");
     cartaUm = 0;
